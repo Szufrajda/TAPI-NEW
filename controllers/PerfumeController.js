@@ -26,31 +26,35 @@ export const loadData = () => {
 // Funkcja do zamiany ID na szczegóły nut zapachowych i składników
 const mapPerfumesWithDetails = (perfumy, nuty_zapachowe, składniki) => {
   return perfumy.map((perfume) => {
-    const fullNotes = perfume.nuty_zapachowe
-      .map((noteId) => {
-        const note = nuty_zapachowe.find((n) => n.id === noteId);
+    const fullNotes = perfume.nuty_zapachowe.map((noteId) => {
+      const note = nuty_zapachowe.find((n) => n.id === noteId);
 
-        if (!note) {
-          console.warn(`Nie znaleziono nuty zapachowej o ID ${noteId}`);
-          return null;
-        }
+      if (!note) {
+        console.warn(`Nie znaleziono nuty zapachowej o ID ${noteId}`);
+        return null;
+      }
 
-        const fullIngredients = note.składniki.map((ingredientId) => {
-          const ingredient = składniki.find((s) => s.id === ingredientId);
-          return ingredient ? ingredient.nazwa_składnika : `Nieznany składnik (${ingredientId})`;
-        });
+      const fullIngredients = note.składniki.map((ingredientId) => {
+        const ingredient = składniki.find((s) => s.id === ingredientId);
+        return ingredient ? ingredient.nazwa_składnika : `Nieznany składnik (${ingredientId})`;
+      });
 
-        return {
-          id: note.id,
-          typ: note.typ,
-          składniki: fullIngredients,
-        };
-      })
-      .filter((note) => note !== null);
+      return {
+        id: note.id,
+        typ: note.typ,
+        składniki: fullIngredients,
+      };
+    }).filter((note) => note !== null);
 
+    // Dodanie linków HATEOAS
     return {
       ...perfume,
       nuty_zapachowe: fullNotes,
+      linki: {
+        self: `/api/perfumes/${perfume.id}`,
+        update: `/api/perfumes/${perfume.id}`,
+        delete: `/api/perfumes/${perfume.id}`
+      }
     };
   });
 };
@@ -77,6 +81,10 @@ export const getPerfumeById = (req, res) => {
   const { perfumy, nuty_zapachowe, składniki } = loadData();
   const { id } = req.params;
 
+  if (!id || isNaN(Number(id))) {
+    return res.status(400).json({ error: 'Nieprawidłowe ID perfumu.' });
+  }
+
   const perfume = perfumy.find((item) => item.id === Number(id));
   if (perfume) {
     const result = mapPerfumesWithDetails([perfume], nuty_zapachowe, składniki)[0];
@@ -86,12 +94,25 @@ export const getPerfumeById = (req, res) => {
   }
 };
 
+
 // 4. Dodaj nowy perfum
 export const createPerfume = (req, res) => {
   const data = loadData();
+
+  // Walidacja danych wejściowych
+  const { nazwa, marka, nuty_zapachowe, pojemnosc, cena, typ } = req.body;
+  if (!nazwa || !marka || !Array.isArray(nuty_zapachowe) || !pojemnosc || !cena || !typ) {
+    return res.status(400).json({ error: 'Nieprawidłowe dane wejściowe.' });
+  }
+
   const newPerfume = {
     id: data.perfumy.length > 0 ? data.perfumy[data.perfumy.length - 1].id + 1 : 0,
-    ...req.body,
+    nazwa,
+    marka,
+    nuty_zapachowe,
+    pojemnosc,
+    cena,
+    typ
   };
 
   data.perfumy.push(newPerfume);
@@ -100,6 +121,7 @@ export const createPerfume = (req, res) => {
   const result = mapPerfumesWithDetails([newPerfume], data.nuty_zapachowe, data.składniki)[0];
   res.status(201).json(result);
 };
+
 
 // 5. Edytuj perfum po ID (PUT - pełna aktualizacja)
 export const updatePerfume = (req, res) => {
@@ -182,16 +204,3 @@ export const getPerfumesByNotesAndIngredient = (req, res) => {
       res.status(500).json({ error: 'Błąd podczas filtrowania perfum.' });
     }
   };
-  
-
-// 8. Pobierz wszystkie nuty zapachowe
-export const getNotes = (req, res) => {
-  const { nuty_zapachowe } = loadData();
-  res.json(nuty_zapachowe);
-};
-
-// 9. Pobierz wszystkie składniki
-export const getIngredients = (req, res) => {
-  const { składniki } = loadData();
-  res.json(składniki);
-};

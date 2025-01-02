@@ -8,8 +8,6 @@ import {
   patchPerfume,
   deletePerfume,
   getPerfumesByNotesAndIngredient,
-  getNotes,
-  getIngredients,
 } from '../controllers/PerfumeController.js';
 
 const router = express.Router();
@@ -22,7 +20,5 @@ router.put('/:id', updatePerfume); // Edytuj perfum (PUT)
 router.patch('/:id', patchPerfume); // Edytuj perfum (PATCH)
 router.delete('/:id', deletePerfume); // Usuń perfum
 router.get('/notes/filter', getPerfumesByNotesAndIngredient); // Pobierz perfumy według nut zapachowych
-router.get('/notes', getNotes); // Pobierz wszystkie nuty zapachowe
-router.get('/ingredients', getIngredients); // Pobierz wszystkie składniki
 
 export default router;
