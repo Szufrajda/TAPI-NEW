@@ -1,0 +1,224 @@
+{
+    "perfumy": [
+      {
+        "id": 0,
+        "nazwa": "Lataffa Khamrah",
+        "marka": "Lataffa",
+        "nuty_zapachowe": [0, 1],
+        "pojemność": "100ml",
+        "cena": 120,
+        "typ": "budżetowe"
+      },
+      {
+        "id": 1,
+        "nazwa": "Afnan 9 PM",
+        "marka": "Afnan",
+        "nuty_zapachowe": [1, 2],
+        "pojemność": "100ml",
+        "cena": 130,
+        "typ": "budżetowe"
+      },
+      {
+        "id": 2,
+        "nazwa": "Bleu de Chanel EDP",
+        "marka": "Chanel",
+        "nuty_zapachowe": [3, 4],
+        "pojemność": "100ml",
+        "cena": 650,
+        "typ": "luksusowe"
+      },
+      {
+        "id": 3,
+        "nazwa": "Versace Eros Flame",
+        "marka": "Versace",
+        "nuty_zapachowe": [5, 6],
+        "pojemność": "100ml",
+        "cena": 480,
+        "typ": "luksusowe"
+      },
+      {
+        "id": 4,
+        "nazwa": "Jean Paul Gaultier Le Male Le Parfum",
+        "marka": "Jean Paul Gaultier",
+        "nuty_zapachowe": [4, 7],
+        "pojemność": "125ml",
+        "cena": 560,
+        "typ": "luksusowe"
+      },
+      {
+        "id": 5,
+        "nazwa": "Valentino Born in Roma Intense",
+        "marka": "Valentino",
+        "nuty_zapachowe": [8, 6],
+        "pojemność": "100ml",
+        "cena": 580,
+        "typ": "luksusowe"
+      },
+      {
+        "id": 6,
+        "nazwa": "Dior Sauvage EDP",
+        "marka": "Dior",
+        "nuty_zapachowe": [3, 9],
+        "pojemność": "100ml",
+        "cena": 600,
+        "typ": "luksusowe"
+      },
+      {
+        "id": 7,
+        "nazwa": "Parfums de Marly Leyton",
+        "marka": "Parfums de Marly",
+        "nuty_zapachowe": [10, 11],
+        "pojemność": "125ml",
+        "cena": 1200,
+        "typ": "niszowe"
+      },
+      {
+        "id": 8,
+        "nazwa": "Xerjoff Torino 21",
+        "marka": "Xerjoff",
+        "nuty_zapachowe": [9, 12],
+        "pojemność": "100ml",
+        "cena": 1100,
+        "typ": "niszowe"
+      },
+      {
+        "id": 9,
+        "nazwa": "Louis Vuitton Imagination",
+        "marka": "Louis Vuitton",
+        "nuty_zapachowe": [9, 11],
+        "pojemność": "100ml",
+        "cena": 1500,
+        "typ": "niszowe"
+      }
+    ],
+    "nuty_zapachowe": [
+      {
+        "id": 0,
+        "typ": "Orientalne",
+        "składniki": [0, 1]
+      },
+      {
+        "id": 1,
+        "typ": "Słodkie",
+        "składniki": [1, 2]
+      },
+      {
+        "id": 2,
+        "typ": "Słodkie",
+        "składniki": [2, 3]
+      },
+      {
+        "id": 3,
+        "typ": "Świeże",
+        "składniki": [4, 5]
+      },
+      {
+        "id": 4,
+        "typ": "Drzewne",
+        "składniki": [6, 7]
+      },
+      {
+        "id": 5,
+        "typ": "Cytrusowe",
+        "składniki": [8, 9]
+      },
+      {
+        "id": 6,
+        "typ": "Kwiatowe",
+        "składniki": [1, 10]
+      },
+      {
+        "id": 7,
+        "typ": "Orientalne",
+        "składniki": [0, 3]
+      },
+      {
+        "id": 8,
+        "typ": "Drzewne",
+        "składniki": [6, 10]
+      },
+      {
+        "id": 9,
+        "typ": "Świeże",
+        "składniki": [4, 8]
+      },
+      {
+        "id": 10,
+        "typ": "Niszowe",
+        "składniki": [10, 11]
+      },
+      {
+        "id": 11,
+        "typ": "Luksusowe",
+        "składniki": [1, 5]
+      },
+      {
+        "id": 12,
+        "typ": "Nowoczesne",
+        "składniki": [3, 8]
+      }
+    ],
+    "składniki": [
+      {
+        "id": 0,
+        "nazwa_składnika": "Cynamon",
+        "grupa_zapachowa": "Orientalne"
+      },
+      {
+        "id": 1,
+        "nazwa_składnika": "Wanilia",
+        "grupa_zapachowa": "Orientalne/Słodkie"
+      },
+      {
+        "id": 2,
+        "nazwa_składnika": "Lawenda",
+        "grupa_zapachowa": "Słodkie/Kwiatowe"
+      },
+      {
+        "id": 3,
+        "nazwa_składnika": "Pralina",
+        "grupa_zapachowa": "Słodkie"
+      },
+      {
+        "id": 4,
+        "nazwa_składnika": "Bergamotka",
+        "grupa_zapachowa": "Świeże"
+      },
+      {
+        "id": 5,
+        "nazwa_składnika": "Mięta",
+        "grupa_zapachowa": "Świeże"
+      },
+      {
+        "id": 6,
+        "nazwa_składnika": "Cedr",
+        "grupa_zapachowa": "Drzewne"
+      },
+      {
+        "id": 7,
+        "nazwa_składnika": "Paczula",
+        "grupa_zapachowa": "Drzewne"
+      },
+      {
+        "id": 8,
+        "nazwa_składnika": "Cytryna",
+        "grupa_zapachowa": "Cytrusowe"
+      },
+      {
+        "id": 9,
+        "nazwa_składnika": "Grejpfrut",
+        "grupa_zapachowa": "Cytrusowe"
+      },
+      {
+        "id": 10,
+        "nazwa_składnika": "Jaśmin",
+        "grupa_zapachowa": "Kwiatowe"
+      },
+      {
+        "id": 11,
+        "nazwa_składnika": "Róża",
+        "grupa_zapachowa": "Kwiatowe"
+      }
+    ]
+  }
+  

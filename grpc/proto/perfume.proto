@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package perfume;
+
+service PerfumeService {
+    rpc GetPerfume(PerfumeId) returns (Perfume);
+}
+
+message PerfumeId {
+    int32 id = 1;
+}
+
+message Perfume {
+    int32 id = 1;
+    string name = 2;
+    string brand = 3;
+}
